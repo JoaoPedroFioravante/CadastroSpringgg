@@ -1,3 +1,5 @@
+package Lecker.s.CadastroSpring;
+
 import jakarta.persistence.*;
 
 @Entity
