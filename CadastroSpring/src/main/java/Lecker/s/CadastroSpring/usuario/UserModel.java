@@ -19,7 +19,7 @@ public class UserModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long Id;
     private String nome;
-    @Column(unique = true)// essa funcao deixa ter apenas 1 email por pessoa, não podendo 2 pessoas utilizar o mesmo email
+    @Column(unique = true)// essa funtion deixa ter apenas 1 email por pessoa, não podendo 2 pessoas utilizar o mesmo email
     private String eMail;
     private int idade;
     //  MANYTOONE, QUER DIZER QUE O USUARIO SÓ PODE TER UMA TAREFA
