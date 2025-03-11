@@ -2,12 +2,18 @@ package Lecker.s.CadastroSpring.Tarefas;
 
 import Lecker.s.CadastroSpring.usuario.UserModel;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
 @Entity
 @Table(name = "tb_Tarefas")
+@NoArgsConstructor //utilizando Lombok para criar construtores
+@AllArgsConstructor
+@Data
 public class TarefasDoUsuario {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,41 +22,10 @@ public class TarefasDoUsuario {
     private String dificuldade;
     //UMA MISSAO PODE TER VARIOS NINJAS
     @OneToMany(mappedBy = "tarefasDoUsuario")
-    private List<UserModel> usuario;
+    private List<UserModel> usuario; // manipulacao de banco de dados utilizando o OneToMany, para dizer que é uma tarefa para varios usuarios
 
 
     public static void main(String[] args) {
 
+}}
 
-
-}
-
-    public TarefasDoUsuario(String dificuldade, String nomeDaTarefa) {
-        this.dificuldade = dificuldade;
-        this.nomeDaTarefa = nomeDaTarefa;
-
-    }
-
-    public TarefasDoUsuario() {
-    }
-
-    public String getDificuldade() {
-        return dificuldade;
-    }
-
-    public void setDificuldade(String dificuldade) {
-        this.dificuldade = dificuldade;
-    }
-
-    public String getNomeDaTarefa() {
-        return nomeDaTarefa;
-    }
-
-    public void setNomeDaTarefa(String nomeDaTarefa) {
-        this.nomeDaTarefa = nomeDaTarefa;
-    }
-
-    public List<UserModel> getUsuario() {
-        return usuario;
-    }
-}
