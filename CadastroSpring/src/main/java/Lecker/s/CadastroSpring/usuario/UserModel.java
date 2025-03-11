@@ -1,22 +1,30 @@
-package Lecker.s.CadastroSpring;
+package Lecker.s.CadastroSpring.usuario;
 
+import Lecker.s.CadastroSpring.Tarefas.TarefasDoUsuario;
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "tb_cadastro")
-public class User {
+public class UserModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long Id;
     private String nome;
     private String eMail;
     private int idade;
+    //  MANYTOONE, QUER DIZER QUE O USUARIO SÓ PODE TER UMA TAREFA
+    @ManyToOne
+    @JoinColumn(name = "usuario_tarefas")//chave estrangeira(junta tabelas)
+    private TarefasDoUsuario tarefasDoUsuario;
 
 
-    public User() {
+    public UserModel() {
     }
 
-    public User(String nome, String eMail, int idade) {
+    public UserModel(String nome, String eMail, int idade) {
         this.nome = nome;
         this.eMail = eMail;
         this.idade = idade;
@@ -45,4 +53,6 @@ public class User {
     public void setIdade(int idade) {
         this.idade = idade;
     }
+
+
 }
