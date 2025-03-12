@@ -18,8 +18,12 @@ public class TarefasDoUsuario {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "Tarefa ")
     private String nomeDaTarefa;
+
+    @Column(name = "dificuldade ")
     private String dificuldade;
+
     //UMA MISSAO PODE TER VARIOS NINJAS
     @OneToMany(mappedBy = "tarefasDoUsuario")
     private List<UserModel> usuario; // manipulacao de banco de dados utilizando o OneToMany, para dizer que é uma tarefa para varios usuarios
